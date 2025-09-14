@@ -1,17 +1,29 @@
 ﻿using System;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using System.Runtime.InteropServices;
 
 namespace Inventory_Management_System
 {
     public partial class Form1 : Form
     {
+        // WinAPI importları
+        [DllImport("user32.dll")]
+        public static extern bool ReleaseCapture();
+
+        [DllImport("user32.dll")]
+        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+
+        public const int WM_NCLBUTTONDOWN = 0xA1;
+        public const int HTCAPTION = 0x2;
+
         public Form1()
         {
             InitializeComponent();
             btnClose.Click += BtnClose_Click;
             btnMinimize.Click += BtnMinimize_Click;
             this.AcceptButton = button1;
+            panelTop.MouseDown += panelTop_MouseDown;
         }
 
         private void BtnClose_Click(object? sender, EventArgs e)
@@ -78,6 +90,15 @@ namespace Inventory_Management_System
             {
                 MessageBox.Show("Beklenmeyen hata: " + ex.Message,
                                 "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void panelTop_MouseDown(object? sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(this.Handle, WM_NCLBUTTONDOWN, HTCAPTION, 0);
             }
         }
     }
