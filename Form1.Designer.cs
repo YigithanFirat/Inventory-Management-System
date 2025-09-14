@@ -31,8 +31,8 @@
             button1 = new Button();
             label3 = new Label();
             panelTop = new Panel();
-            btnClose = new Button();
             btnMinimize = new Button();
+            btnClose = new Button();
             panelTop.SuspendLayout();
             SuspendLayout();
             // 
@@ -40,7 +40,7 @@
             // 
             textBox1.BackColor = Color.FromArgb(55, 65, 81);
             textBox1.BorderStyle = BorderStyle.None;
-            textBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            textBox1.Font = new Font("Segoe UI", 12F);
             textBox1.ForeColor = Color.White;
             textBox1.Location = new Point(220, 140);
             textBox1.Margin = new Padding(3, 2, 3, 2);
@@ -53,7 +53,7 @@
             // 
             textBox2.BackColor = Color.FromArgb(55, 65, 81);
             textBox2.BorderStyle = BorderStyle.None;
-            textBox2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            textBox2.Font = new Font("Segoe UI", 12F);
             textBox2.ForeColor = Color.White;
             textBox2.Location = new Point(220, 200);
             textBox2.Margin = new Padding(3, 2, 3, 2);
@@ -67,22 +67,22 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold);
             label1.ForeColor = Color.WhiteSmoke;
             label1.Location = new Point(120, 140);
             label1.Name = "label1";
-            label1.Size = new Size(93, 20);
+            label1.Size = new Size(94, 20);
             label1.TabIndex = 2;
             label1.Text = "Kullanıcı Adı";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold);
             label2.ForeColor = Color.WhiteSmoke;
             label2.Location = new Point(170, 200);
             label2.Name = "label2";
-            label2.Size = new Size(43, 20);
+            label2.Size = new Size(40, 20);
             label2.TabIndex = 3;
             label2.Text = "Şifre";
             // 
@@ -91,7 +91,7 @@
             button1.BackColor = Color.FromArgb(87, 98, 255);
             button1.FlatAppearance.BorderSize = 0;
             button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            button1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
             button1.ForeColor = Color.White;
             button1.Location = new Point(220, 260);
             button1.Name = "button1";
@@ -104,11 +104,11 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Point);
+            label3.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
             label3.ForeColor = Color.White;
             label3.Location = new Point(220, 80);
             label3.Name = "label3";
-            label3.Size = new Size(263, 30);
+            label3.Size = new Size(313, 30);
             label3.TabIndex = 5;
             label3.Text = "📦 Envanter Yönetim Sistemi";
             // 
@@ -122,26 +122,13 @@
             panelTop.Name = "panelTop";
             panelTop.Size = new Size(784, 40);
             panelTop.TabIndex = 6;
-            // 
-            // btnClose
-            // 
-            btnClose.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnClose.FlatStyle = FlatStyle.Flat;
-            btnClose.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            btnClose.ForeColor = Color.White;
-            btnClose.Location = new Point(744, 0);
-            btnClose.Name = "btnClose";
-            btnClose.Size = new Size(40, 40);
-            btnClose.TabIndex = 0;
-            btnClose.Text = "X";
-            btnClose.UseVisualStyleBackColor = true;
-            btnClose.Click += (s, e) => Close();
+            panelTop.MouseDown += panelTop_MouseDown;
             // 
             // btnMinimize
             // 
             btnMinimize.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnMinimize.FlatStyle = FlatStyle.Flat;
-            btnMinimize.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            btnMinimize.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnMinimize.ForeColor = Color.White;
             btnMinimize.Location = new Point(704, 0);
             btnMinimize.Name = "btnMinimize";
@@ -149,7 +136,19 @@
             btnMinimize.TabIndex = 1;
             btnMinimize.Text = "—";
             btnMinimize.UseVisualStyleBackColor = true;
-            btnMinimize.Click += (s, e) => WindowState = FormWindowState.Minimized;
+            // 
+            // btnClose
+            // 
+            btnClose.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnClose.FlatStyle = FlatStyle.Flat;
+            btnClose.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnClose.ForeColor = Color.White;
+            btnClose.Location = new Point(744, 0);
+            btnClose.Name = "btnClose";
+            btnClose.Size = new Size(40, 40);
+            btnClose.TabIndex = 0;
+            btnClose.Text = "X";
+            btnClose.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
